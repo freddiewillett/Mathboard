@@ -32,7 +32,8 @@ $(document).ready(function() {
   var pubnub = PUBNUB.init({
     publish_key: 'pub-c-84ee8042-1f75-49a0-9941-68f75eb3b498',
     subscribe_key: 'sub-c-366cb476-96e0-11e6-94c7-02ee2ddab7fe',
-    uuid: UUID
+    uuid: UUID,
+	ssl : (('https:' == document.location.protocol) ? true : false)  
   });
  
   // Grab references for all of our elements.
@@ -83,6 +84,7 @@ $(document).ready(function() {
   var pubnub = PUBNUB.init({
           publish_key: 'pub-c-37271fdb-3d41-44ea-9e0d-f290a9a5a591',
           subscribe_key: 'sub-c-4ed1f028-9099-11e6-a68c-0619f8945a4f',
+	  ssl : (('https:' == document.location.protocol) ? true : false)
   });
 
     pubnub.subscribe({
