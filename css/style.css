@@ -36,6 +36,15 @@
    background-color: red;
    color: white;
 }
+.loginlogo {
+   border: solid red 2px;
+   padding: 3px;
+   white-space: none;
+   background-color: red;
+   color: white;
+   text-align: center;
+   bottom: 40%;
+}
 .left {
     width: 222px;
     height: 100vh;
