@@ -10,7 +10,7 @@ $(document).ready(function() {
 	//       after you initialize it
 
 
-  /*Initialize Firebase
+  //Initialize Firebase
   var config = {
     apiKey: "AIzaSyDH0F3_eqLiEBFw4esqW_qjvsw71QEJdRQ",
     authDomain: "chatapp-e45f5.firebaseapp.com",
@@ -19,7 +19,34 @@ $(document).ready(function() {
     messagingSenderId: "496547799051"
   };
   firebase.initializeApp(config);
-  */
+  
+  var provider = new firebase.auth.GoogleAuthProvider();
+
+  $("#btn-login").click(function() {
+    
+    $(".login-window").hide();
+    $(".main-window").show();
+
+
+      firebase.auth().signInWithPopup(provider).then(function(result) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+      // The signed-in user info.
+      var user = result.user;
+      // ...
+    }).catch(function(error) {
+      // Handle Errors here.
+      var errorCode = error.code;
+      var errorMessage = error.message;
+      // The email of the user's account used.
+      var email = error.email;
+      // The firebase.auth.AuthCredential type that was used.
+      var credential = error.credential;
+      // ...
+      });
+    });
+  
+
 
   // get/create/store UUID
     var UUID = PUBNUB.db.get('session') || (function(){ 
@@ -49,7 +76,7 @@ $(document).ready(function() {
         + "</li>");
     messageList.append(messageEl);
   };
- 
+
   // Compose and send a message when the user clicks our send message button.
   sendbtn.click(function (event) {
     var message = messageContent.val();
@@ -188,6 +215,15 @@ $(document).ready(function() {
 
     plots = [];
   }
+  $("#btn-logout").click(function() {
+
+    auth.signOut().then(function() {
+      $(".login-window").show();
+      $(".main-window").hide();
+    }, function(error) {
+        alert("Oops!  Couldn't log you out.  Here's why: "+error);
+    });
+  });
 ;
 	// @NOTE: it's probably a good idea to place your event 
 	//		  listeners in here :)
