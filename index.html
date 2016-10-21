@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+    <head>
+        <title>MATHBOARD</title>
+        <link rel="icon" href="favicon.ico">
+    </head>
+    
+<body>
+
+<div class="left">
+    <h2 class="myname">MATHBOARD</h2>
+</div>
+
+<div class="container main">      
+    <div class="row" style="max-height: 95vh">    
+        <canvas id="drawCanvas" height="527px" width="1260px"></canvas>
+            <div id="message" style="max-height: 80px">
+                <ul id="messageList" style="list-style-type: none; overflow-y: scroll; line-height: 1; max-height: 230px"></ul>
+            </div>
+    </div>
+        <div id="messages row">
+            <input type=form id="messageContent" placeholder="Type your message here..." style="width: 930px"></input>
+            <button href="#" id="sendbtn" data-role="button">SEND</button>
+            <input type="button" value='&Delta;' onclick="adddel('messageContent')"></input>
+            <input type="button" value='&lambda;' onclick="addlam('messageContent')"></input>
+            <input type="button" value='&pi;' onclick="addpi('messageContent')"></input>
+            <input type="button" value='&Sigma;' onclick="addsig('messageContent')"></input>
+            <input type="button" value='&radic;' onclick="addsqr('messageContent')"></input>
+        </div>
+    </div>
+</div>
+
+    <!-- BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+    <!-- Your custom CSS -->
+    <link rel='stylesheet' type='text/css' href='css/style.css'>
+    <!-- PUBNUB -->
+    <script src="https://cdn.pubnub.com/pubnub-3.16.4.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/3.5.0/firebase.js"></script>
+    <!-- JQUERY -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- BOOTSTRAP JS (for modal an other functions!) -->
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Your main JS Script -->
+    <script src="js/app.js"></script>
+    </body>
+</html>
